@@ -8,9 +8,9 @@
     <p><input type="text" id="pantalla"></p>
     
     <h3>Operaciones unitarias</h3>
-    <button id="cuadrado"> <sub>x</sub>2 </button>
-    <button id="&quot;factorial&quot;">x!</button>
-    <button id="raiz" >sqr </button>
+    <button id="cuadrado"> sq() </button>
+    <button id="&quot;factorial&quot;">fact()</button>
+    <button id="raiz" >sqr() </button>
     
     <h3>Operaciones Binarias</h3>
     
@@ -40,9 +40,9 @@
        cuadrado=number*number;
        PonerValor(cuadrado);
       }
-      document.getElementById("pantalla").value = CalcularCuadrado();
-      document.getElementById("pantalla").value = CalcularRaiz();
-      document.getElementById("pantalla").value = CalcularFactorial();    
+      document.getElementById("cuadrado").addEventListener("click", sq());
+      document.getElementById("&quot;factorial&quot;").addEventListener("click",fact());
+      document.getElementById("raiz").addEventListener("click", sqr());    
     </script>
     
    </body>
