@@ -23,25 +23,26 @@
        document.getElementById("pantalla").value;
       }
       function CalcularFactorial(){
-       let factorial;
-       for (let index = number; index>1; index--){
-         factorial *= index;
+       let factorial=CogerValor();
+       let result=1;
+       for (let index = factorial; index>1; index--){
+         result *= index;
        }
-       return factorial;
+       PonerValor(result);
       }
-      function CalcularRaiz(number){
-       let raiz;
+      function CalcularRaiz(){
+       let raiz =CogerValor();
        raiz=Math.sqrt(number);
-       return raiz;
+       PonerValor(raiz);
       }
       function CalcularCuadrado(number){
-       let cuadrado;
+       let cuadrado=CogerValor();
        cuadrado=number*number;
-       return cuadrado;
+       PonerValor(cuadrado);
       }
-      document.getElementById("pantalla").value = CalcularCuadrado(number);
-      document.getElementById("pantalla").value = CalcularRaiz(number);
-      document.getElementById("pantalla").value = CalcularFactorial(number);    
+      document.getElementById("pantalla").value = CalcularCuadrado();
+      document.getElementById("pantalla").value = CalcularRaiz();
+      document.getElementById("pantalla").value = CalcularFactorial();    
     </script>
     
    </body>
