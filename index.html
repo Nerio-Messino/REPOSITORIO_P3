@@ -17,8 +17,10 @@
     <button id="resta">-</button>
     <button id="multiplicacion">*</button>
     <button id="division">/</button>
-    
+
     <script type="text/javascript">
+      let operador;
+      let acumulador;
       function CogerValor(){
         return Number(document.getElementById("pantalla").value);  
       }
@@ -44,6 +46,25 @@
          resultado = cuadrado*cuadrado;
          PonerValor(resultado);
       }
+       function acumula(n){
+          switch(operador){
+            case"":
+            acumulador = n;
+            break;
+            case"+":
+            acumulador += n;
+            break;
+            case"-":
+            acumulador -= n;
+            break;
+            case"*":
+            acumulador *= n;
+            break;
+            case"/":
+            acumulador /= n;
+            break;
+          }
+       }
       function cargar(){
         document.getElementById("cuadrado").addEventListener("click",CalcularCuadrado);
         document.getElementById("factorial").addEventListener("click",CalcularFactorial);
