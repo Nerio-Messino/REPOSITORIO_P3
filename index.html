@@ -8,9 +8,9 @@
     <p><input type="text" id="pantalla"></p>
     
     <h3>Operaciones unitarias</h3>
-    <button id="cuadrado"> sq() </button>
-    <button id="&quot;factorial&quot;">fact()</button>
-    <button id="raiz" >sqr() </button>
+    <button id="cuadrado">sq</button>
+    <button id="factorial">fact</button>
+    <button id="raiz" >sqr</button>
     
     <h3>Operaciones Binarias</h3>
     
@@ -20,7 +20,7 @@
         return Number(document.getElementById("pantalla").value);  
       }
       function PonerValor(valor){
-       document.getElementById("pantalla").value;
+       document.getElementById("pantalla").value=valor;
       }
       function CalcularFactorial(){
        let factorial=CogerValor();
@@ -32,21 +32,20 @@
       }
       function CalcularRaiz(){
        let raiz =CogerValor();
-       raiz=Math.sqrt(number);
+       Math.sqrt(raiz);
        PonerValor(raiz);
       }
-      function CalcularCuadrado(number){
-       let cuadrado=CogerValor();
-       cuadrado=number*number;
-       PonerValor(cuadrado);
+      function CalcularCuadrado(){
+         let cuadrado=CogerValor();
+         resultado = cuadrado*cuadrado;
+         PonerValor(resultado);
       }
-      const onload = () => {
-                // OPERACIONES UNITARIAS
-                document.getElementById("cuadrado").addEventListener("click", sq());
-                document.getElementById("factorial").addEventListener("click", fact());
-                document.getElementById("raiz").addEventListener("click", sqr());
-                }  
-      window.onload=onload;           
+      function cargar(){
+        document.getElementById("cuadrado").addEventListener("click",CalcularCuadrado);
+        document.getElementById("factorial").addEventListener("click",CalcularFactorial);
+        document.getElementById("raiz").addEventListener("click",CalcularRaiz);
+      }  
+      window.onload=cargar;           
     </script>
     
    </body>
