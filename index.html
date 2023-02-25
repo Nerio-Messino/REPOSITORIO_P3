@@ -11,7 +11,7 @@
     <button id="cuadrado"><sub>x</sub>2</button>
     <button id="factorial">x!</button>
     <button id="raiz" >&#8730 x</button>
-    
+    <h2 id="info" class="grande" title="Info sobre el número">Info sobre el número</h2>
     <h3>Operaciones Binarias</h3>
     <button id="suma">+</button>
     <button id="resta">-</button>
@@ -20,8 +20,8 @@
     <button id="igual">=</button>
 
     <script type="text/javascript">
-      let operador;
-      let acumulador=1;
+      let operador="";
+      let acumulador=0;
       function CogerValor(){
         return Number(document.getElementById("pantalla").value);  
       }
@@ -71,28 +71,27 @@
 
        }
        function add(){ 
-        operador="+";
         acumula(CogerValor());
-       VaciarInput();
+        operador="+";
+        VaciarInput();
 
        }
        function sub(){
-        operador="-";
         acumula(CogerValor());
+        operador="-";
         VaciarInput();
 
        }
        function mul(){
-        operador="*";
         acumula(CogerValor());
+        operador="*";
         VaciarInput();
 
        }
        function div(){
-        operador="/"
         acumula(CogerValor());
+        operador="/"
         VaciarInput();
-
        }
        
        function eq(){
