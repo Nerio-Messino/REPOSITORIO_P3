@@ -57,17 +57,20 @@
          result *= index;
        }
        PonerValor(result);
+       rellenarInfo();
       }
       function CalcularRaiz(){
        let raiz =CogerValor();
        let ResultRaiz;
        ResultRaiz =Math.sqrt(raiz);
        PonerValor(ResultRaiz);
+       rellenarInfo();
       }
       function CalcularCuadrado(){
          let cuadrado=CogerValor();
          resultado = cuadrado*cuadrado;
          PonerValor(resultado);
+         rellenarInfo();
       }
        function acumula(n){
           switch(operador){
@@ -96,30 +99,35 @@
         acumula(CogerValor());
         operador="+";
         VaciarInput();
+        rellenarInfo();
 
        }
        function sub(){
         acumula(CogerValor());
         operador="-";
         VaciarInput();
+        rellenarInfo();
 
        }
        function mul(){
         acumula(CogerValor());
         operador="*";
         VaciarInput();
+        rellenarInfo();
 
        }
        function div(){
         acumula(CogerValor());
         operador="/"
         VaciarInput();
+        rellenarInfo();
        }
        
        function eq(){
         acumula(CogerValor());
         operador="";
         PonerValor(acumulador);
+        rellenarInfo();
         
        }
 
