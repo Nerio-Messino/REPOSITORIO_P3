@@ -67,7 +67,7 @@
           }
        }
        function VaciarInput(){
-        document.getElementById("pantalla").innerHTML="";
+        document.getElementById("pantalla").value="";
 
        }
        function add(){
@@ -78,14 +78,20 @@
        }
        function sub(){
        operador="-";
+       acumula(CogerValor());
+       VaciarInput();
 
        }
        function mul(){
        operador="*";
+       acumula(CogerValor());
+       VaciarInput();
 
        }
        function div(){
        operador="/"
+       acumula(CogerValor());
+       VaciarInput();
 
        }
        
