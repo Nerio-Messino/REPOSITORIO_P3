@@ -73,6 +73,7 @@
        function add(){
        operador="+";
        acumula(CogerValor());
+       VaciarInput();
 
        }
        function sub(){
@@ -89,7 +90,9 @@
        }
        
        function eq(){
-
+        acumula(CogerValor());
+        operador="";
+        PonerValor(acumulador);
        }
 
       
