@@ -21,7 +21,7 @@
 
     <script type="text/javascript">
       let operador;
-      let acumulador=0;
+      let acumulador=1;
       function CogerValor(){
         return Number(document.getElementById("pantalla").value);  
       }
@@ -70,27 +70,27 @@
         document.getElementById("pantalla").value="";
 
        }
-       function add(){
-       operador="+";
+       function add(){ 
        acumula(CogerValor());
+       operador="+";
        VaciarInput();
 
        }
        function sub(){
-       operador="-";
        acumula(CogerValor());
+       operador="-";
        VaciarInput();
 
        }
        function mul(){
-       operador="*";
        acumula(CogerValor());
+       operador="*";
        VaciarInput();
 
        }
        function div(){
-       operador="/"
        acumula(CogerValor());
+       operador="/"
        VaciarInput();
 
        }
@@ -99,6 +99,7 @@
         acumula(CogerValor());
         operador="";
         PonerValor(acumulador);
+        
        }
 
       
