@@ -48,8 +48,14 @@
                     }
                 }
                 document.getElementById("info").innerHTML = mensaje;
-            }
-      
+      }
+
+      function validar(){
+        if(Number.isNaN(CogerValor))
+        acumulador =0;
+        operador="";
+        PonerValor("Error");
+      }
       function CalcularFactorial(){
        let factorial=CogerValor();
        let result=1;
@@ -58,6 +64,7 @@
        }
        PonerValor(result);
        rellenarInfo();
+       validar();
       }
       function CalcularRaiz(){
        let raiz =CogerValor();
@@ -65,12 +72,14 @@
        ResultRaiz =Math.sqrt(raiz);
        PonerValor(ResultRaiz);
        rellenarInfo();
+       validar();
       }
       function CalcularCuadrado(){
          let cuadrado=CogerValor();
          resultado = cuadrado*cuadrado;
          PonerValor(resultado);
          rellenarInfo();
+         validar();
       }
        function acumula(n){
           switch(operador){
@@ -100,6 +109,7 @@
         operador="+";
         VaciarInput();
         rellenarInfo();
+        validar();
 
        }
        function sub(){
@@ -107,6 +117,7 @@
         operador="-";
         VaciarInput();
         rellenarInfo();
+        validar();
 
        }
        function mul(){
@@ -114,6 +125,7 @@
         operador="*";
         VaciarInput();
         rellenarInfo();
+        validar();
 
        }
        function div(){
@@ -121,6 +133,7 @@
         operador="/"
         VaciarInput();
         rellenarInfo();
+        validar();
        }
        
        function eq(){
@@ -128,6 +141,7 @@
         operador="";
         PonerValor(acumulador);
         rellenarInfo();
+        validar();
         
        }
 
