@@ -1,6 +1,160 @@
 <html>
  <head> 
+  <meta charset="utf-8">
   <link rel="stylesheet" href="estilo.css"> 
+  <script type="text/javascript">
+    let operador="";
+    let acumulador=0;
+    function CogerValor(){
+      return Number(document.getElementById("pantalla").value);  
+    }
+    function PonerValor(valor){
+     document.getElementById("pantalla").value=valor;
+    }
+    function rellenarInfo(){
+      const resultadoInput=CogerValor();
+      let mensaje = "";
+
+              if (Number.isNaN(resultadoInput)) {
+                  mensaje = "ERROR";
+              }
+
+              else {
+                  if (resultadoInput < 100) {
+                      mensaje = "Info: El resultado es menor que 100";
+                  }
+                  else if (resultadoInput <= 200) {
+                      mensaje = "Info: El resultado esta entre 100 y 200";
+                  }
+                  else {
+                      mensaje = "Info: El resultado es superior a 200";
+                  }
+              }
+              document.getElementById("info").innerHTML = mensaje;
+    }
+
+    function validar(){
+      if(Number.isNaN(CogerValor)){
+        acumulador =0;
+      operador="";
+      PonerValor("Error");
+      return false;
+      }
+      return true;
+    }
+    function fact(){
+     if(!validar()) return;
+      let factorial=CogerValor();
+     let result=1;
+     for (let index = factorial; index>1; index--){
+       result *= index;
+     }
+     PonerValor(result);
+     rellenarInfo();
+     
+    }
+    function sqr(){
+     if(!validar()) return;
+     let raiz =CogerValor();
+     let ResultRaiz;
+     ResultRaiz =Math.sqrt(raiz);
+     PonerValor(ResultRaiz);
+     rellenarInfo();
+    
+    }
+    function sq(){
+      if(!validar()) return; 
+      let cuadrado=CogerValor();
+       resultado = cuadrado*cuadrado;
+       PonerValor(resultado);
+       rellenarInfo();
+       
+    }
+     function acumula(n){
+        switch(operador){
+          case"":
+          acumulador = n;
+          break;
+          case"+":
+          acumulador += n;
+          break;
+          case"-":
+          acumulador -= n;
+          break;
+          case"*":
+          acumulador *= n;
+          break;
+          case"/":
+          acumulador /= n;
+          break;
+        }
+     }
+     function VaciarInput(){
+      document.getElementById("pantalla").value="";
+
+     }
+     function add(){ 
+      if(!validar()) return;
+      acumula(CogerValor());
+      operador="+";
+      VaciarInput();
+      rellenarInfo();
+     
+
+     }
+     function sub(){
+      if(!validar()) return;
+      acumula(CogerValor());
+      operador="-";
+      VaciarInput();
+      rellenarInfo();
+      
+
+     }
+     function mul(){
+      if(!validar()) return;
+      acumula(CogerValor());
+      operador="*";
+      VaciarInput();
+      rellenarInfo();
+      
+
+     }
+     function div(){
+      if(!validar()) return;
+      acumula(CogerValor());
+      operador="/"
+      VaciarInput();
+      rellenarInfo();
+     
+     }
+     
+     function eq(){
+      if(!validar()) return;
+      acumula(CogerValor());
+      operador="";
+      PonerValor(acumulador);
+      rellenarInfo();
+      
+      
+     }
+
+    
+     function cargar(){
+      //OPERACIONES UNITARIAS
+      document.getElementById("cuadrado").addEventListener("click",sq);
+      document.getElementById("factorial").addEventListener("click",fact);
+      document.getElementById("raiz").addEventListener("click",sqr);
+     //OPERACIONES BINARIAS
+     document.getElementById("suma").addEventListener("click",add);
+     document.getElementById("resta").addEventListener("click",sub);
+     document.getElementById("multiplicacion").addEventListener("click",mul);
+     document.getElementById("division").addEventListener("click",div);
+     document.getElementById("igual").addEventListener("click",eq)
+    }  
+    window.onload=cargar;           
+  </script>
+  
  </head>
  <body>
     <h2 class="cabecera"> Calculadora de CORE</h2>
@@ -18,149 +172,9 @@
     <button id="multiplicacion">*</button>
     <button id="division">/</button>
     <button id="igual">=</button>
+    <h3 class = "Nombre"> Hecha por Nerio Messino Morales </h3>
 
-    <script type="text/javascript">
-      let operador="";
-      let acumulador=0;
-      function CogerValor(){
-        return Number(document.getElementById("pantalla").value);  
-      }
-      function PonerValor(valor){
-       document.getElementById("pantalla").value=valor;
-      }
-      function rellenarInfo(){
-        const resultadoInput=CogerValor();
-        let mensaje = "";
-
-                if (Number.isNaN(resultadoInput)) {
-                    mensaje = "ERROR";
-                }
-
-                else {
-                    if (resultadoInput < 100) {
-                        mensaje = "Info: El resultado es menor que 100";
-                    }
-                    else if (resultadoInput <= 200) {
-                        mensaje = "Info: El resultado esta entre 100 y 200";
-                    }
-                    else {
-                        mensaje = "Info: El resultado es superior a 200";
-                    }
-                }
-                document.getElementById("info").innerHTML = mensaje;
-      }
-
-      function validar(){
-        if(Number.isNaN(CogerValor))
-        acumulador =0;
-        operador="";
-        PonerValor("Error");
-      }
-      function CalcularFactorial(){
-       let factorial=CogerValor();
-       let result=1;
-       for (let index = factorial; index>1; index--){
-         result *= index;
-       }
-       PonerValor(result);
-       rellenarInfo();
-       validar();
-      }
-      function CalcularRaiz(){
-       let raiz =CogerValor();
-       let ResultRaiz;
-       ResultRaiz =Math.sqrt(raiz);
-       PonerValor(ResultRaiz);
-       rellenarInfo();
-       validar();
-      }
-      function CalcularCuadrado(){
-         let cuadrado=CogerValor();
-         resultado = cuadrado*cuadrado;
-         PonerValor(resultado);
-         rellenarInfo();
-         validar();
-      }
-       function acumula(n){
-          switch(operador){
-            case"":
-            acumulador = n;
-            break;
-            case"+":
-            acumulador += n;
-            break;
-            case"-":
-            acumulador -= n;
-            break;
-            case"*":
-            acumulador *= n;
-            break;
-            case"/":
-            acumulador /= n;
-            break;
-          }
-       }
-       function VaciarInput(){
-        document.getElementById("pantalla").value="";
-
-       }
-       function add(){ 
-        acumula(CogerValor());
-        operador="+";
-        VaciarInput();
-        rellenarInfo();
-        validar();
-
-       }
-       function sub(){
-        acumula(CogerValor());
-        operador="-";
-        VaciarInput();
-        rellenarInfo();
-        validar();
-
-       }
-       function mul(){
-        acumula(CogerValor());
-        operador="*";
-        VaciarInput();
-        rellenarInfo();
-        validar();
-
-       }
-       function div(){
-        acumula(CogerValor());
-        operador="/"
-        VaciarInput();
-        rellenarInfo();
-        validar();
-       }
-       
-       function eq(){
-        acumula(CogerValor());
-        operador="";
-        PonerValor(acumulador);
-        rellenarInfo();
-        validar();
-        
-       }
-
-      
-       function cargar(){
-        //OPERACIONES UNITARIAS
-        document.getElementById("cuadrado").addEventListener("click",CalcularCuadrado);
-        document.getElementById("factorial").addEventListener("click",CalcularFactorial);
-        document.getElementById("raiz").addEventListener("click",CalcularRaiz);
-       //OPERACIONES BINARIAS
-       document.getElementById("suma").addEventListener("click",add);
-       document.getElementById("resta").addEventListener("click",sub);
-       document.getElementById("multiplicacion").addEventListener("click",mul);
-       document.getElementById("division").addEventListener("click",div);
-       document.getElementById("igual").addEventListener("click",eq)
-      }  
-      window.onload=cargar;           
-    </script>
-    
+   
    </body>
 
 
