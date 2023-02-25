@@ -68,6 +68,7 @@
        }
        function add(){
        operador="+";
+       acumula(CogerValor());
 
        }
        function sub(){
@@ -82,11 +83,19 @@
        operador="/"
 
        }
+       
+       function eq(){
 
-      function cargar(){
+       }
+
+      
+       function cargar(){
+        //OPERACIONES UNITARIAS
         document.getElementById("cuadrado").addEventListener("click",CalcularCuadrado);
         document.getElementById("factorial").addEventListener("click",CalcularFactorial);
         document.getElementById("raiz").addEventListener("click",CalcularRaiz);
+       //OPERACIONES BINARIAS
+       document.getElementById("suma").addEventListener("click",add);
       }  
       window.onload=cargar;           
     </script>
